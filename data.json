@@ -1,0 +1,53 @@
+{
+  "subject": "http://jmvanel.free.fr/jmv.rdf",
+  "fields": [
+    {
+      "label": "prénom",
+      "comment": "Le prénom d'une personne .",
+      "mandatory": false,
+      "property": "http://xmlns.com/foaf/0.1/givenName",
+      "subject": "",
+      "type": "",
+      "value": "\"Jean-Marc\"",
+      "widgetType": "Text WidgetType",
+      "openChoice": true,
+      "cardinality": "0 Or More"
+    },
+    {
+      "label": "nom de famille",
+      "comment": "Le nom de famille d'une personne .",
+      "mandatory": false,
+      "property": "http://xmlns.com/foaf/0.1/familyName",
+      "subject": "",
+      "type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "value": "\"Vanel\"",
+      "widgetType": "Text WidgetType",
+      "openChoice": true,
+      "cardinality": "0 Or More"
+    },
+    {
+      "label": "page d'accueil",
+      "comment": "Une page d'accueil pour quelque chose .",
+      "mandatory": false,
+      "property": "http://xmlns.com/foaf/0.1/homepage",
+      "subject": "",
+      "type": "http://xmlns.com/foaf/0.1/Document",
+      "value": "http://jmvanel.free.fr/",
+      "widgetType": "URI WidgetType",
+      "openChoice": true,
+      "cardinality": "0 Or More"
+    },
+    {
+      "label": "type",
+      "comment": "Le sujet est une instance d'une classe ",
+      "mandatory": false,
+      "property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "subject": "",
+      "type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "value": "http://xmlns.com/foaf/0.1/Person",
+      "widgetType": "URI WidgetType",
+      "openChoice": true,
+      "cardinality": "0 Or More"
+    }
+  ]
+}
