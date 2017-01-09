@@ -1,6 +1,7 @@
 class SemanticFormsParser {
 
-  constructor() {
+  constructor(options) {
+    Object.assign(this, options);
     this.doc = window.document;
   }
 
@@ -43,15 +44,35 @@ class SemanticFormsParser {
     xhr.send(data);
   }
 
+  auth(callback) {
+    if (!this.authenticated) {
+      this.ajax({
+        url: this.host + '/authenticate?userid=' + this.user + '&password=' + this.password + '&confirmPassword=' + this.password,
+        xhrFields: {
+          withCredentials: true
+        },
+        success:() => {
+
+        }
+      });
+      this.authenticated = true;
+    }
+  }
+
   loadFormData(url, success = false, options = {}) {
-    // Give priority to options object.
-    options = Object.assign({
-      url: url,
-      success: (data) => {
-        success && this.loadFormDataSuccess(success, data);
-      }
-    }, options);
-    this.ajax(options);
+    this.auth(() => {
+      // Give priority to options object.
+      options = Object.assign({
+        url: this.host + '/form-data?displayuri=' + window.encodeURIComponent(url),
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Basic " + btoa(this.username + ":" + this.password));
+        },
+        success: (data) => {
+          success && this.loadFormDataSuccess(success, data);
+        }
+      }, options);
+      this.ajax(options);
+    });
   }
 
   loadFormDataSuccess(success, data) {
