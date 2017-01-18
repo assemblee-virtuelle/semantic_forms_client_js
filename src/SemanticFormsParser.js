@@ -51,8 +51,11 @@ class SemanticFormsParser {
         xhrFields: {
           withCredentials: true
         },
-        success:() => {
+        /*success:() => {
 
+        },*/
+        complete:(e) => {
+          console.log(e);
         }
       });
       this.authenticated = true;
