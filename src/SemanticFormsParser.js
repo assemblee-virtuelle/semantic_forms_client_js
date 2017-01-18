@@ -47,7 +47,7 @@ class SemanticFormsParser {
   auth(callback) {
     if (!this.authenticated) {
       this.ajax({
-        url: this.host + '/authenticate?userid=' + this.user + '&password=' + this.password + '&confirmPassword=' + this.password,
+        url: this.host + '/authenticate?xhr=1&userid=' + this.user + '&password=' + this.password + '&confirmPassword=' + this.password,
         xhrFields: {
           withCredentials: true
         },
