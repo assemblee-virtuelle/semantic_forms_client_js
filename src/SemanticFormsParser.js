@@ -53,8 +53,8 @@ class SemanticFormsParser {
         },
         /*success:() => {
 
-        },*/
-        complete:(e) => {
+         },*/
+        complete: (e) => {
           console.log(e);
         }
       });
@@ -63,19 +63,19 @@ class SemanticFormsParser {
   }
 
   loadFormData(url, success = false, options = {}) {
-    this.auth(() => {
-      // Give priority to options object.
-      options = Object.assign({
-        url: this.host + '/form-data?displayuri=' + window.encodeURIComponent(url),
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader("Authorization", "Basic " + btoa(this.username + ":" + this.password));
-        },
-        success: (data) => {
-          success && this.loadFormDataSuccess(success, data);
-        }
-      }, options);
-      this.ajax(options);
-    });
+    //this.auth(() => {
+    // Give priority to options object.
+    options = Object.assign({
+      url: this.host + '/form-data?displayuri=' + window.encodeURIComponent(url),
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", "Basic " + btoa(this.username + ":" + this.password));
+      },
+      success: (data) => {
+        success && this.loadFormDataSuccess(success, data);
+      }
+    }, options);
+    this.ajax(options);
+    //});
   }
 
   loadFormDataSuccess(success, data) {
