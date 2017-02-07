@@ -4,9 +4,12 @@ $(function () {
     console.log(m);
   };
 
+var distantHost =  'http://163.172.179.125:9111';
+ // 'http://localhost:9000'
+
   // Create a new parser.
-  /*var parser = new SemanticFormsParser({
-   host: 'http://163.172.179.125:9111',
+  var parser = new SemanticFormsParser({
+   host: distantHost,
    user: 'sf_client',
    password: 'sf_client'
    });
@@ -16,10 +19,10 @@ $(function () {
    let domForm = parser.renderForm(json);
    // Append to dom.
    document.getElementById('myForm').appendChild(domForm);
-   });*/
+   });
 
   var parserJQuery = new SemanticFormsParserJQuery({
-    host: 'http://163.172.179.125:9111',
+    host: distantHost ,
     user: 'sf_client',
     password: 'sf_client'
   });
@@ -31,12 +34,12 @@ $(function () {
     $('#myFormJQuery').append(domForm);
   });
 
-  /*var parserBootstrap = new SemanticFormsParserBootstrap();
+  var parserBootstrap = new SemanticFormsParserBootstrap();
    // Load data.
    parser.loadFormData('data.json', function (json) {
    // Render form.
    let domForm = parserBootstrap.renderForm(json);
    // Append to dom.
    document.getElementById('myFormBootstrap').appendChild(domForm);
-   });*/
+   });
 });
